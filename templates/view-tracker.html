@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{url_for('static',filename='dashboard.css')}}" />
+    <title>Add Tracker</title>
+  </head>
+  <body style="background-color: lightseagreen ">
+    <section class="navigation-bar">
+      <nav class="navbar header">
+        <h1><a href="/{{user_id}}/{{user_name}}/dashboard">Hello {{user_name}}</a></h1>
+        <div class="form-inline">
+          <a href="/login">
+            <button class="btn btn-outline-danger btn-lg">Logout</button>
+          </a>
+        </div>
+      </nav>
+    </section>
+    
+    {% if tracker_type=='numerical' %}
+    <section class="tracker-body">
+        <div class="container tracker-add">
+            <h1>{{tracker_name}} tracker</h1>
+            <div class="container text-center">
+              <p style="font-size: 20px; padding: 20px; color:blue">
+              See the trendlines and logs of the {{tracker_name}} tracker and know how does it match your expectations
+              </p>
+              </div>
+            <img src="{{url_for('static',filename='hist1.png')}}" alt="graph">
+        </div>
+    </section>
+    {% endif %}
+    <section class="log-table">
+        <div class="container tracker-table">
+            <h1>Logs</h1>
+            <br>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">On</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Note</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for r in logListJson %}
+                  <tr>
+                    <th scope="row">{{r['log_id']}}</th>
+                    <td>{{r['tracker_timestamp']}}</td>
+                    <td>{{r['tracker_value']}}</td>
+                    <td>{{r['tracker_note']}}</td>
+                    <td>
+                        <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Action
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <a href="/{{user_id}}/{{user_name}}/{{tracker_id}}/{{tracker_name}}/{{r['log_id']}}/update_log">
+                          <button class="dropdown-item" type="button" href="#">Edit</button>
+                        </a>
+                        <a href="/{{user_id}}/{{user_name}}/{{tracker_id}}/{{tracker_name}}/{{r['log_id']}}/delete_log">
+                          <button class="dropdown-item" type="button" href="#">Delete</button>
+                        </a>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+    </section>
+    <section class="text-center">
+      <a href="/{{user_id}}/{{user_name}}/{{tracker_id}}/{{tracker_name}}/add_log">
+        <button class="btn btn-outline-primary btn-lg" >Add Logs</button></a>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

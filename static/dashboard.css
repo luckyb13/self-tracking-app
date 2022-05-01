@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+.header {
+  /* background-color: #f5ba13; */
+  background-color: rgb(105, 188, 216);
+  margin: auto -16px;
+  padding: 16px 32px;
+  /* box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3); */
+}
+
+.link {
+  color: black;
+}
+.header h1 {
+  color: #fff;
+  margin: left 10px;
+  font-family: "McLaren", cursive;
+  font-weight: 200;
+}
+.header a{
+  color: #fff;
+  text-decoration: none;
+}
+.add {
+  border: none;
+  background: #fff;
+}
+.add:focus {
+  border: none;
+  outline: none;
+}
+.tracker-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-top: 50px;
+}
+.add-button {
+  margin-top: 20px;
+}
+.tracker-add {
+  font-family: "Muli", sans-serif;
+  margin-top: 20px;
+}

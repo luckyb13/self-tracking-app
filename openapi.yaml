@@ -1,0 +1,98 @@
+#project openAPi
+
+openapi: 3.0.3
+info: 
+  title: openAPi specification for project
+  version: '1.2'
+    
+servers:
+  - url: http://127.0.0.1:5000/
+   
+tags:
+  - name: Trackers
+    description: crud on trackers
+  - name: logs
+    description: crud on logs
+
+    
+paths: 
+  /Trackers: 
+    summary: Tacker read create
+    get:
+      tags: 
+        - Trackers
+      summary: get all trackers
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input
+    post:
+      tags: 
+        - Trackers
+      summary: create a new tracker
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input      
+  /Tracker_manipulate: 
+    summary: Tacker update delete
+    put:
+      tags: 
+        - Trackers
+      summary: update a tracker
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input        
+    delete:
+      tags: 
+        - Trackers
+      summary: delete a tracker
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input 
+  /Tracker_logs: 
+    summary: read create
+    get:
+      tags: 
+        - logs
+      summary: get all logs for a tracker
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input
+    post:
+      tags: 
+        - logs
+      summary: create a new log
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input      
+  /log_manipulate: 
+    summary: log update delete
+    put:
+      tags: 
+        - logs
+      summary: update a log
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input        
+    delete:
+      tags: 
+        - logs
+      summary: delete a log
+      responses:
+        200:
+          description: Success
+        400:
+          description: incorrect input 

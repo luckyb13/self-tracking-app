@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="{{url_for('static',filename='dashboard.css')}}" />
+    <title>Update Log</title>
+  </head>
+  <body style="background-color: lightpink">
+    <section class="navigation-bar">
+      <nav class="navbar header">
+        <h1><a href="/{{user_id}}/{{user_name}}/dashboard">Hello {{user_name}}</a></h1>
+        <div class="form-inline">
+          <a href="/login">
+            <button class="btn btn-outline-danger btn-lg">Logout</button>
+          </a>
+        </div>
+      </nav>
+    </section>
+    <section class="tracker-form">
+      <section class="tracker-form">
+        <div class="container tracker-add">
+          <h1>Log Running</h1>
+          <div class="container text-center">
+            <p style="font-size: 20px; padding: 20px; color:blue">
+            Update the log to replace the previous one.
+            </p>
+            </div>
+          <form action="/{{user_id}}/{{user_name}}/{{tracker_id}}/{{tracker_name}}/{{log_id}}/update_log" method="POST">
+            <div class="form-group">
+              <label for="exampleInputEmail1">When</label>
+              <input
+                type="name"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                value= {{ltime}}
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Value</label>
+              <input
+                name="value"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                value= {{lv}}
+              />
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Notes</label>
+              <input
+                name="notes"
+                type="text"
+                class="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                value= {{ln}}
+              />
+            </div>
+
+        </div>
+    </section>
+    <section class="add-button">
+        <div class="container text-center">
+            <button class="btn btn-outline-primary btn-lg">Update</button>
+        </div>
+    </section>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
